@@ -20,6 +20,13 @@ from matplotlib.colors import ListedColormap
 from io import BytesIO
 import base64
 
+# Get the port Railway gives you (defaults to 8501 locally)
+port = int(os.environ.get("PORT", 8501))
+
+# Set Streamlit server options
+os.environ["STREAMLIT_SERVER_PORT"] = str(port)
+os.environ["STREAMLIT_SERVER_ADDRESS"] = "0.0.0.0"
+
 # === Setup ===
 CLASS_FOLDERS_FILE = "class_folders.pkl"
 DEFAULT_CLASS_LIST = [
